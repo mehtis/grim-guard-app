@@ -35,6 +35,14 @@ export default class Stat extends Component {
             keyboardType='numeric'
           />
         </View>
+        <View style={styles.row}>
+          <Text style={styles.label}>Proficiency total</Text>
+          <Text>{this.props.calculateProficiencyTotal(this.props.name)}</Text>
+        </View>
+        <View style={styles.row}>
+          <Text style={styles.label}>Total modifier</Text>
+          <Text>{this.props.calculateTotalModifier(this.props.name)}</Text>
+        </View>
       </View>
     )
   }
@@ -47,8 +55,11 @@ Stat.propTypes = {
     natural: PropTypes.string.isRequired,
     proficiency: PropTypes.string,
     temporary: PropTypes.string
-  }),
-  onChange: PropTypes.func
+  }).isRequired,
+  statModifierOffset: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
+  calculateProficiencyTotal: PropTypes.func,
+  calculateTotalModifier: PropTypes.func
 }
 
 const styles = StyleSheet.create({
@@ -60,6 +71,7 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
   },
   title: {
     backgroundColor: '#bbb'
