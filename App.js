@@ -1,12 +1,14 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 
-import Stats from './src/Stats'
+import StatsEditor from './src/StatsEditor'
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Stats />
+      <ScrollView>
+        <StatsEditor />
+      </ScrollView>
     </View>
   )
 }
